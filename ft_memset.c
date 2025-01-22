@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 00:49:21 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/22 20:02:28 by jeflores         ###   ########.fr       */
+/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
+/*   Updated: 2025/01/22 20:57:28 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *str)
+void *ft_memset(void *ptr, int c, size_t n)
 {
-	size_t len = 0;
+	unsigned char *p;
 	
-	while (str[len] != '\0')
+	p = ptr;
+
+	while (n--)
 	{
-		len++;
+		*p = (unsigned char)c;
+		p++;
 	}
-	return len;
+	return (ptr);
 }
 
-/* int	main(void)
+int main (void)
 {
-	char *c1 = "Hola Mundo";
-	printf("%s tiene %zu caracteres",c1, ft_strlen(c1));
+	char str[] = "Hola";
+	int c = 'x';
+	size_t n = 2;
+
+	printf("%s ahora es", (unsigned char *)ft_memset(str, c, n));
+
 	return (0);
-} */
+}

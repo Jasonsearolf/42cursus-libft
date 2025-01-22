@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:34:05 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/20 21:46:36 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:24:09 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_isascii(int c)
 	}
 	return (0);
 }
-
+/* 
 #include <stdio.h>
 
 int main(void)
@@ -28,4 +28,4 @@ int main(void)
 	printf("'%c' es caracter ascii? %d \n", c1, ft_isascii(c1));
 	
 	return(0);
-}
+} */
