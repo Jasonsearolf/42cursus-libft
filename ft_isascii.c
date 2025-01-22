@@ -6,13 +6,13 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:34:05 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/22 19:24:09 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:12:05 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if(c >= 0 && c <= 127)
+	if (c >= 0 && c <= 127)
 	{
 		return (1);
 	}

@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 19:47:56 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/22 20:31:25 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:12:17 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int		ft_isalnum(int c);
 int 	ft_isascii(int c);
 int 	ft_isprint(int c);
 size_t	ft_strlen(const char *str);
+void 	*ft_memset(void *ptr, int c, size_t n);
 
 #endif
