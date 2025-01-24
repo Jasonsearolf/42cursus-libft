@@ -6,22 +6,22 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:52:26 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/24 18:11:15 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:19:24 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, void *src, size_t n)
+void	*ft_memmove(void *dest, void *src, size_t n)
 {
-	unsigned char *d;
-	const unsigned char *s;
-	size_t i;
+	unsigned char		*d;
+	unsigned const char	*s;
+	size_t				i;
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	i = n;
-	if(d > s && d < s + n)
+	if (d > s && d < s + n)
 	{
 		while (n--)
 		{
@@ -41,16 +41,15 @@ void *ft_memmove(void *dest, void *src, size_t n)
 	return (dest);
 }
 
-
-int main(void)
+/* int main(void)
 {
 	char src[] = "HOLAS";
 	char dest[] = "Pikachu";
 
-	ft_memmove(dest + 2, src, 15);
+	ft_memmove(dest + 2, src, 2);
 	printf ("dest ft es = %s\n", dest);
 
-	memmove(dest + 2, src, 15);
+	memmove(dest + 2, src, 2);
 	printf ("dest origin es = %s", dest);
 	return (0);
-}
+} */
