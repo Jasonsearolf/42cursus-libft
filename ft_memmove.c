@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const unsigned char *s;
 	size_t i;
 
-	buffer[n] = "";
+	buffer = (unsigned char *)dest;
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	i = 0;
@@ -42,16 +42,17 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 int	main(void)
 {
-	char src[] = "Hola";
-	char dest[] = "Pikachu";
+	char src[] = "Ho";
+	char dest[] = "Pikechu";
+	size_t n = 3;
 
 	//char dest[5];
 	
 	printf ("%s Ahora es %s\n",
-			src, (unsigned char *)ft_memmove(dest, src, ft_strlen(src) + 1));
+			src, (unsigned char *)ft_memmove(dest, src, n));
 	
 	printf ("%s Ahora es %s",
-			src, (unsigned char *)memmove(dest, src, ft_strlen(src) + 1));
+			src, (unsigned char *)memmove(dest, src, n));
 
 	return (0);
 }
