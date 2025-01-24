@@ -5,54 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 21:17:17 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/23 22:20:47 by jeflores         ###   ########.fr       */
+/*   Created: 2025/01/24 16:52:26 by jeflores          #+#    #+#             */
+/*   Updated: 2025/01/24 18:05:13 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void *ft_memmove(void *dest, void *src, size_t n)
 {
-	//Implementar manejo de error
-	unsigned char *buffer;
 	unsigned char *d;
 	const unsigned char *s;
 	size_t i;
 
-	buffer = (unsigned char *)dest;
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
-	i = 0;
-	while (s[i] != '\0')
+	i = n;
+	if(d > s && d < s + n)
 	{
-		buffer[i] = s[i];
-		i++;
+		while (n--)
+		{
+			d[i - 1] = s[i - 1];
+			i--;
+		}
 	}
-
-	i = 0;
-	while(n--)
+	else
 	{
-		d[i] = buffer[i];
-		i++;
+		i = 0;
+		while (n--)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-
 	return (dest);
 }
 
-int	main(void)
+
+int main(void)
 {
-	char src[] = "Ho";
-	char dest[] = "Pikechu";
-	size_t n = 3;
+	char src[] = "HOLAS";
+	char dest[] = "Pikachu";
 
-	//char dest[5];
-	
-	printf ("%s Ahora es %s\n",
-			src, (unsigned char *)ft_memmove(dest, src, n));
-	
-	printf ("%s Ahora es %s",
-			src, (unsigned char *)memmove(dest, src, n));
+	ft_memmove(dest + 2, src, 15);
+	printf ("dest ft es = %s\n", dest);
 
+	memmove(dest + 2, src, 15);
+	printf ("dest origin es = %s", dest);
 	return (0);
 }
