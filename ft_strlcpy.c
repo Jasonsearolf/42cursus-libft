@@ -15,15 +15,31 @@
 size_t ft_strlcpy(char *dst, const char *src, size_t n)
 {
 	size_t i;
+	size_t srclen;
+
+	if (!src)
+	{
+		return (0);
+	}
+
+	srclen = ft_strlen(src);
+
+	
+	if (n == 0)
+	{
+		return (srclen);
+	}
 
 	i = 0;
-	while (i <= n)
-	{
-		dst[i] = src[i];
-		i++;
-	}
+	while (i < (n-1) && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+
 	dst[i] = '\0';
-	return (i);
+
+	return (srclen);
 }
 
 int main(void)
@@ -31,10 +47,9 @@ int main(void)
 	char src[] = "Pikachu";
 	char dst[5];
 
-	ft_strlcpy (dst, src, 5);
 	int result = (unsigned int) ft_strlcpy (dst, src, 5);
 	printf ("Destino: %s\n", dst);
-	printf ("Longitud: %d", result);
+	printf ("Longitud: %d", result); 
 
 	return (0);
 }
