@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/01 00:15:05 by jeflores         ###   ########.fr       */
+/*   Created: 2025/02/07 22:11:20 by jeflores          #+#    #+#             */
+/*   Updated: 2025/02/08 15:11:49 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*p;
+	const unsigned char* str;
+	unsigned char uc;
+	size_t i;
 
-	p = ptr;
+	str = (const unsigned char*)s;
+	uc = (unsigned char) c;
+	i = 0;
 	while (n--)
 	{
-		*p = (unsigned char)c;
-		p++;
+		if (str[i] == uc)
+		{
+			return (void *)&str[i];
+		}
+		i++;
 	}
-	return (ptr);
+
+	return (NULL);
+
 }
 
-/* 
-#include <string.h>
-int main (void)
+int main(void)
 {
-	char str[] = "Hola";
-	int c = 'x';
-	size_t n = 2;
+	const void *s = "Hola";
+	int c = 'l';
+	size_t n = 4;
 
-	printf("%s ahora es %s \n",str, (unsigned char *)ft_memset(str, c, n));
-	printf("%s ahora es %s",str, (unsigned char *)memset(str, c, n));
-
-
+	printf("%p",ft_memchr(s, c, n));
 	return (0);
-} */
+
+}

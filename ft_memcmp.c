@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/01 00:15:05 by jeflores         ###   ########.fr       */
+/*   Created: 2025/02/08 21:39:24 by jeflores          #+#    #+#             */
+/*   Updated: 2025/02/08 22:11:08 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t n)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*p;
+	const unsigned char *str1;
+	const unsigned char *str2;
+	size_t i;
 
-	p = ptr;
-	while (n--)
+	str1 = (const unsigned char *) s1;
+	str2 = (const unsigned char *) s2;
+	i = 0;
+	while(i < n)
 	{
-		*p = (unsigned char)c;
-		p++;
+		if (str1[i] != str2[i])
+		{
+			return (str1[i] - str2[i]);
+		}
+		i++;
 	}
-	return (ptr);
-}
-
-/* 
-#include <string.h>
-int main (void)
-{
-	char str[] = "Hola";
-	int c = 'x';
-	size_t n = 2;
-
-	printf("%s ahora es %s \n",str, (unsigned char *)ft_memset(str, c, n));
-	printf("%s ahora es %s",str, (unsigned char *)memset(str, c, n));
-
 
 	return (0);
-} */
+}
+
+int main(void)
+{
+	const void *s1 = "Hola";
+	const void *s2 = "Holita";
+	size_t n = 4;
+
+	printf("%d", ft_memcmp(s1, s2, n));
+	return (0);
+}

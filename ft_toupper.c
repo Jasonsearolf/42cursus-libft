@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/01 00:15:05 by jeflores         ###   ########.fr       */
+/*   Created: 2025/01/31 20:38:15 by jeflores          #+#    #+#             */
+/*   Updated: 2025/01/31 21:12:03 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t n)
+int	ft_toupper(int c)
 {
-	unsigned char	*p;
-
-	p = ptr;
-	while (n--)
+	if (c >= 'a' && c <= 'z')
 	{
-		*p = (unsigned char)c;
-		p++;
+		c = c - 32;
 	}
-	return (ptr);
+	return (c);
 }
-
-/* 
-#include <string.h>
-int main (void)
+/* int main(void)
 {
-	char str[] = "Hola";
-	int c = 'x';
-	size_t n = 2;
+	int c = 'a';
 
-	printf("%s ahora es %s \n",str, (unsigned char *)ft_memset(str, c, n));
-	printf("%s ahora es %s",str, (unsigned char *)memset(str, c, n));
-
-
+	printf ("%c",ft_toupper(c));
 	return (0);
 } */

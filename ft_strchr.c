@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/01 00:15:05 by jeflores         ###   ########.fr       */
+/*   Created: 2025/01/31 21:11:28 by jeflores          #+#    #+#             */
+/*   Updated: 2025/02/01 01:04:10 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t n)
+char *ft_strchr(const char *s, int c )
 {
-	unsigned char	*p;
-
-	p = ptr;
-	while (n--)
+	unsigned char uc;
+	
+	uc = (unsigned char) c;
+	while (*s != '\0')
 	{
-		*p = (unsigned char)c;
-		p++;
+		if ((unsigned char)*s == uc)
+		{
+			return (char *)s;
+		}
+		s++;
 	}
-	return (ptr);
+
+	if (uc == '\0')
+	{
+		return (char *)s;
+	}
+	return NULL;
 }
 
-/* 
-#include <string.h>
-int main (void)
+int main(void)
 {
-	char str[] = "Hola";
-	int c = 'x';
-	size_t n = 2;
+	int c = 'h';
+	const char *s = "Pikachu";
 
-	printf("%s ahora es %s \n",str, (unsigned char *)ft_memset(str, c, n));
-	printf("%s ahora es %s",str, (unsigned char *)memset(str, c, n));
-
-
-	return (0);
-} */
+	char *result = ft_strchr(s, c);
+	printf ("%ld", result - s);
+}

@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:33:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/01 00:15:05 by jeflores         ###   ########.fr       */
+/*   Created: 2025/02/05 21:28:24 by jeflores          #+#    #+#             */
+/*   Updated: 2025/02/07 22:05:35 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t n)
+int ft_strncmp(const char *s1, const char*s2, size_t n)
 {
-	unsigned char	*p;
+	size_t i;
 
-	p = ptr;
-	while (n--)
+	i = 0;
+	while(i < n && s1[i] && s2[i])
 	{
-		*p = (unsigned char)c;
-		p++;
+		if (s1[i] != s2[i])
+		{
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		}
+		i++;
 	}
-	return (ptr);
+	if (i < n)
+	{
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (0);
 }
 
-/* 
-#include <string.h>
-int main (void)
+int main(void)
 {
-	char str[] = "Hola";
-	int c = 'x';
-	size_t n = 2;
+	const char s1[] = "Ho";
+	const char s2[] = "Holita";
+	size_t n = 4;
 
-	printf("%s ahora es %s \n",str, (unsigned char *)ft_memset(str, c, n));
-	printf("%s ahora es %s",str, (unsigned char *)memset(str, c, n));
-
-
+	printf("%d", ft_strncmp(s1, s2, n));
 	return (0);
-} */
+
+}
