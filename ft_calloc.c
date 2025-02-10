@@ -1,57 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 21:43:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/10 20:49:06 by jeflores         ###   ########.fr       */
+/*   Created: 2025/02/10 21:18:35 by jeflores          #+#    #+#             */
+/*   Updated: 2025/02/10 21:49:17 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *str)
+void *ft_calloc(size_t count, size_t size)
 {
-	int i;
-	int result;
-	int sign;
+	size_t total;
+	void *ptr;
 
-	i = 0;
-	result = 0;
-	sign = 1;
-	
-
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+	if (count != 0 && size > SIZE_MAX / count)
 	{
-		i++;
+		return (NULL);
 	}
 
-	if (str[i] == '-' || str[i] == '+')
+	total = count * size;
+	ptr = malloc(total);
+
+	if (ptr == NULL)
 	{
-		if (str[i] == '-')
-		{
-			sign = -1;
-		}
-		i++;
+		return (NULL);
 	}
 
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
+	ft_memset(ptr, 0, total);
 
-	i++;
-
-	return (result * sign);
+	return ptr;
 }
 
 int main(void)
 {
-	const char str[] = " -+-++123abc";
-
-	printf("%d", ft_atoi(str));
-	return (0);
+	printf ("%p")
 }
