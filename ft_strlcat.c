@@ -6,18 +6,17 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:34:34 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/30 01:14:21 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:49 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	size_t srclen;
-	size_t dstlen;
-
-	size_t i;
+	size_t	srclen;
+	size_t	dstlen;
+	size_t	i;
 
 	srclen = ft_strlen (src);
 	dstlen = ft_strlen (dst);
@@ -26,7 +25,7 @@ size_t ft_strlcat(char *dst, const char *src, size_t n)
 	{
 		return (n + srclen);
 	}
-	while(i < (n - dstlen - 1) && src[i])
+	while (i < (n - dstlen - 1) && src[i])
 	{
 		dst[dstlen + i] = src[i];
 		i++;
@@ -35,7 +34,7 @@ size_t ft_strlcat(char *dst, const char *src, size_t n)
 	return (dstlen + srclen);
 }
 
-int main(void)
+/* int main(void)
 {
 	char src[] = "chu";
 	char dst[] = "Pika";
@@ -45,4 +44,4 @@ int main(void)
 	printf ("Longitud: %d", result); 
 
 	return (0);
-}
+} */

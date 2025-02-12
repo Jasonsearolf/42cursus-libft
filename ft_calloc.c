@@ -6,36 +6,32 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:18:35 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/11 22:12:43 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:36:57 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t total;
-	void *ptr;
+	size_t	total;
+	void	*ptr;
 	//Revisar si se puede usar SIZE_MAX porque está en otra libreria.
 	/* if (count != 0 && size > SIZE_MAX / count)
 	{
 		return (NULL);
 	} */
-
 	total = count * size;
 	ptr = malloc(total);
-
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
-
 	ft_memset(ptr, 0, total);
-
-	return ptr;
+	return (ptr);
 }
 
-int main(void)
+/* int main(void)
 {
 	size_t n = 5;
 	int *arr = ft_calloc(n, sizeof(int));
@@ -50,4 +46,4 @@ int main(void)
 	free(arr);
 
 	return (0);
-}
+} */
