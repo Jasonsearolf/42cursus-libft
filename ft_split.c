@@ -54,7 +54,7 @@ static char *token_copy(const char* s, int start, int end)
 	return (token);
 }
 
-char **ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char** result;
 	int total_tokens;
