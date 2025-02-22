@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:00:21 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/21 00:39:02 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/21 00:47:38 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int main(void)
 	result = ft_itoa(num);
 
 	printf("%s\n", result);
+	free (result);
 	return (0);
 }
