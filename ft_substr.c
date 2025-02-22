@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:55:14 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/12 21:45:10 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/22 18:43:06 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	char *sub;
+	char	*sub;
 
 	i = 0;
 	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if(sub == NULL)
+	if (sub == NULL)
 	{
 		return (NULL);
 	}
@@ -34,7 +34,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 //Revisar casos de desbordamiento de LEN o ajustar LEN
 
-int main(void)
+/* int main(void)
 {
 	const char *s = "Pikachu";
 	int start = 2;
@@ -51,4 +51,4 @@ int main(void)
 	}
 	free(result);
 	return (0);
-}
+} */

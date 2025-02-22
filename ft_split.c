@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:55:11 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/18 22:57:09 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/22 19:16:50 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static	int	tokens_counter(const char *s, char delim)
 {
-	int tokens;
-	int in_token;
+	int	tokens;
+	int	in_token;
 
 	tokens = 0;
 	in_token = 0;
@@ -34,11 +34,12 @@ static	int	tokens_counter(const char *s, char delim)
 	}
 	return (tokens);
 }
-static char *token_copy(const char* s, int start, int end)
+
+static	char	*token_copy(const char *s, int start, int end)
 {
-	int len;
-	int i;
-	char *token;
+	int		len;
+	int		i;
+	char	*token;
 
 	len = end - start;
 	token = (char *)malloc(sizeof(char) * (len + 1));
@@ -54,35 +55,38 @@ static char *token_copy(const char* s, int start, int end)
 	return (token);
 }
 
+static	void	ft_free_all(int arr_index, char **result)
+{
+	int	j;
+
+	j = 0;
+	while (j < arr_index)
+	{
+		free(result[j]);
+	}
+	free(result);
+}
+
 char	**ft_split(const char *s, char c)
 {
-	char** result;
-	int total_tokens;
-	int i;
-	int j;
-	int arr_index;
-	int start_index;
+	char	**result;
+	int		total_tokens;
+	int		i;
+	int		arr_index;
+	int		start_index;
 
 	if (!s)
-	{
-		result = (char**)malloc(sizeof(char *));
-		if(!result)
-			return (NULL);
-		result[0] = NULL;
-		return (result);
-	}
+		return (NULL);
 	total_tokens = tokens_counter(s, c);
-	result = (char**)malloc(sizeof(char *) * (total_tokens + 1));
+	result = (char **)malloc(sizeof(char *) * (total_tokens + 1));
 	if (!result)
 		return (NULL);
 	i = 0;
 	arr_index = 0;
 	while (s[i])
-	{	
+	{
 		while (s[i] == c && s[i])
-		{
 			i++;
-		}
 		if (s[i] != c)
 		{
 			start_index = i;
@@ -91,12 +95,7 @@ char	**ft_split(const char *s, char c)
 			result[arr_index] = token_copy(s, start_index, i);
 			if (!result[arr_index])
 			{
-				j = 0;
-				while (j < arr_index)
-				{
-					free(result[j]);
-				}
-				free(result);
+				ft_free_all(arr_index, result);
 				return (NULL);
 			}
 			arr_index++;
@@ -106,7 +105,7 @@ char	**ft_split(const char *s, char c)
 	return (result);
 }
 
-int main(void)
+/* int main(void)
 {
 	int i = 0;
     char **result;
@@ -127,4 +126,4 @@ int main(void)
     free(result);         // Liberamos el array de punteros
 
     return (0);
-}
+} */

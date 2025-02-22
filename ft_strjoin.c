@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:45:26 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/12 22:08:36 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/22 18:44:06 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	total = ft_strlen(s1) + ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (total + 1));
-	if(!result)
+	if (!result)
 	{
 		return (NULL);
 	}
@@ -43,7 +43,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 // REVISAR CASOS DE NULL 
 
-int main(void)
+/* int main(void)
 {
 	char s1[] = "Pika";
 	char s2[] = "chu";
@@ -53,3 +53,4 @@ int main(void)
 	free(result);
 	return (0);
 }
+ */

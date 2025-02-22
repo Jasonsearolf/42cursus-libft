@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:14:45 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/16 18:52:18 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/22 18:44:46 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	start;
 	size_t	end;
 	size_t	len;
-	char *trimmed;
+	char	*trimmed;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -39,7 +39,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	return (trimmed);
 }
 
-int main(void)
+/* int main(void)
 {
 	const char s1[] = " ! ! Pikachu !! ! ";
 	const char set[] = " !";
@@ -48,4 +48,4 @@ int main(void)
 	printf("%s\n", result);
 	free (result);
 	return (0);
-}
+} */
