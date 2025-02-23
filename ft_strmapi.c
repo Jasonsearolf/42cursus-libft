@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 21:33:50 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/23 22:10:44 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:27:30 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	return (dest);
 }
 
-static	char	ft_test(unsigned int i, char c)
+/* static	char	ft_test(unsigned int i, char c)
 {
 	if (i % 2 == 0)
 		return ((char)ft_toupper(c));
 	else
 		return ((char)ft_tolower(c));
-}
+} */
 
 /* int	main(void)
 {

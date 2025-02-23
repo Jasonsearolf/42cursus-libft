@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 22:22:00 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/23 22:14:02 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:38:59 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 
-static	void	ft_upper(unsigned int i, char *c)
+/* static	void	ft_upper(unsigned int i, char *c)
 {
 	(void) i;
-	if (*c >= 'a' && *c <= 'z')
-		*c -= 32;
-}
+	if (*c >= 'a' && *c <= 'z')*c -= 32;
+} */
 
 /* int	main(void)
 {
