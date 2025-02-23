@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:50:55 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/22 18:16:31 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:15:43 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int num;
+	long int	num;
 
 	num = n;
 	if (num == -2147483648)
@@ -36,12 +36,12 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		ft_putchar_fd((num + 48) , fd);
+		ft_putchar_fd((num + 48), fd);
 	}
 }
 
-int main(void)
+/* int main(void)
 {
 	ft_putnbr_fd(-2147483648, 1);
 	return (0);
-}
+} */

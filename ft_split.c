@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:55:11 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/22 19:16:50 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:08:58 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,74 +35,61 @@ static	int	tokens_counter(const char *s, char delim)
 	return (tokens);
 }
 
-static	char	*token_copy(const char *s, int start, int end)
+static	char	*extract_token(const char **s, char c)
 {
-	int		len;
-	int		i;
+	size_t	token_len;
 	char	*token;
 
-	len = end - start;
-	token = (char *)malloc(sizeof(char) * (len + 1));
-	if (!token)
+	while (**s == c)
+		(*s)++;
+	if (!**s)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		token[i] = s[start + i];
-		i++;
-	}
-	token[i] = '\0';
+	if (!ft_strchr(*s, c))
+		token_len = ft_strlen(*s);
+	else
+		token_len = ft_strchr(*s, c) - *s;
+	token = ft_substr(*s, 0, token_len);
+	*s += token_len;
 	return (token);
 }
 
-static	void	ft_free_all(int arr_index, char **result)
+static	void	ft_free_all(int arr_index, char **arr_tokens)
 {
 	int	j;
 
 	j = 0;
 	while (j < arr_index)
 	{
-		free(result[j]);
+		free(arr_tokens[j]);
 	}
-	free(result);
+	free(arr_tokens);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**result;
+	char	**arr_tokens;
 	int		total_tokens;
 	int		i;
-	int		arr_index;
-	int		start_index;
 
 	if (!s)
 		return (NULL);
 	total_tokens = tokens_counter(s, c);
-	result = (char **)malloc(sizeof(char *) * (total_tokens + 1));
-	if (!result)
+	arr_tokens = (char **)malloc(sizeof(char *) * (total_tokens + 1));
+	if (!arr_tokens)
 		return (NULL);
 	i = 0;
-	arr_index = 0;
-	while (s[i])
+	while (i < total_tokens)
 	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i] != c)
+		arr_tokens[i] = extract_token(&s, c);
+		if (!arr_tokens[i])
 		{
-			start_index = i;
-			while (s[i] != c && s[i])
-				i++;
-			result[arr_index] = token_copy(s, start_index, i);
-			if (!result[arr_index])
-			{
-				ft_free_all(arr_index, result);
-				return (NULL);
-			}
-			arr_index++;
+			ft_free_all(i, arr_tokens);
+			return (NULL);
 		}
+		i++;
 	}
-	result[arr_index] = NULL;
-	return (result);
+	arr_tokens[i] = NULL;
+	return (arr_tokens);
 }
 
 /* int main(void)

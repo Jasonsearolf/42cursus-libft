@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:00:21 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/21 00:47:38 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:09:43 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int main(void)
+/* int main(void)
 {
 	int num = -2147483648;
 	char *result;
@@ -71,4 +71,4 @@ int main(void)
 	printf("%s\n", result);
 	free (result);
 	return (0);
-}
+} */

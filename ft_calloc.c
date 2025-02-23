@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:18:35 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/12 19:36:57 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/23 22:18:59 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	total;
 	void	*ptr;
-	//Revisar si se puede usar SIZE_MAX porque está en otra libreria.
-	/* if (count != 0 && size > SIZE_MAX / count)
+
+	total = count * size;
+	if (count != 0 && total / count != size)
 	{
 		return (NULL);
-	} */
-	total = count * size;
+	}
 	ptr = malloc(total);
 	if (ptr == NULL)
 	{
