@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:55:14 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/22 18:43:06 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:30:54 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	char	*sub;
+	size_t	str_len;
+	char	*substr;
 
-	i = 0;
-	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if (sub == NULL)
-	{
+	str_len = ft_strlen(s);
+	if (start >= str_len)
+		return (ft_strdup(""));
+	if (len > (str_len - start))
+		len = str_len - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
 		return (NULL);
-	}
-	while (i < len)
+	i = 0;
+	while (i < len && s[start + i])
 	{
-		sub[i] = s[start + i];
+		substr[i] = s[start + i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	substr[i] = '\0';
+	return (substr);
 }
-
-//Revisar casos de desbordamiento de LEN o ajustar LEN
 
 /* int main(void)
 {

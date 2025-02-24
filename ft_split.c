@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:55:11 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/23 22:08:58 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:26:00 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static	void	ft_free_all(int arr_index, char **arr_tokens)
 	while (j < arr_index)
 	{
 		free(arr_tokens[j]);
+		j++;
 	}
 	free(arr_tokens);
 }

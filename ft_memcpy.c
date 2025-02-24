@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:21:27 by jeflores          #+#    #+#             */
-/*   Updated: 2025/01/24 18:29:51 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:37:59 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	i = 0;
+	if (d == s || !n)
+		return (d);
 	while (n--)
 	{
 		d[i] = s[i];
