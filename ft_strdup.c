@@ -6,26 +6,27 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:18:30 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/12 19:45:56 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/24 01:17:05 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s)
 {
 	size_t	len;
-	void	*s2;
-	char	*result;
+	char	*dest;
 
-	len = ft_strlen(s1);
-	s2 = malloc(len);
-	result = ft_memcpy(s2, s1, len);
-	return (result);
+	len = ft_strlen(s) + 1;
+	dest = (char *)malloc(len);
+	if (!dest)
+		return (NULL);
+	ft_memcpy(dest, s, len);
+	return (dest);
 }
 /* int main(void)
 {
-	const char *s1 = "Pikachu";
+	const char *s = "Pikachu";
 
-	printf("%s\n", ft_strdup(s1));
+	printf("%s\n", ft_strdup(s));
 } */

@@ -6,7 +6,7 @@
 /*   By: jeflores <jeflores@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:43:28 by jeflores          #+#    #+#             */
-/*   Updated: 2025/02/23 22:24:43 by jeflores         ###   ########.fr       */
+/*   Updated: 2025/02/24 01:27:40 by jeflores         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,36 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
 	int	result;
 	int	sign;
 
-	i = 0;
 	result = 0;
 	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		i++;
-	}
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		result = (result * 10) + (*str - '0');
+		str++;
 	}
-	i++;
 	return (result * sign);
 }
 
-/* int main(void)
+/* #include <stdlib.h>
+#include <stdio.h>
+int main(void)
 {
-	const char str[] = " -+-++123abc";
+	const char str[] = " -123abc";
 
-	printf("%d", ft_atoi(str));
+	printf("%d\n", ft_atoi(str));
+	printf("%d", atoi(str));
 	return (0);
 } */
